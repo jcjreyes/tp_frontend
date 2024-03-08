@@ -1,10 +1,10 @@
-import { loginRequest, profileRequest } from '../api/auth';
+import { loginRequest } from '../api/auth';
 import { useAuthStore } from '../store/userStore';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
-  const { setToken, setProfile, logout } = useAuthStore((state) => state);
-  const navigate = useNavigate();
+  const { setToken, logout } = useAuthStore((state) => state);
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
