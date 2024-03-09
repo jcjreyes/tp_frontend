@@ -1,4 +1,8 @@
+import { useQuery } from 'react-query';
+import { Buildings } from '../api/requests/Buildings';
 export default function BuildingsList() {
+  const { data } = useQuery('buildings', Buildings.getAll);
+  console.log(data);
   return (
     <>
       <div className='buildings-list main'>
