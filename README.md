@@ -8,6 +8,8 @@
 # Helper Packages
 
 - react-query
+- zustand
+- axios
 
 # React + TypeScript + Vite
 
