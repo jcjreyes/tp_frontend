@@ -12,17 +12,18 @@ export default function BuildingsList() {
   return (
     <>
       <div className='buildings-list main'>
-        {buildings?.map((building) => (
-          <div
-            className='buildings-list item'
-            key={building.id}
-            onClick={() => setSelectedBuilding(building)}
-          >
-            {building.name}
-          </div>
-        ))}
+        {buildings
+          ?.sort((a, b) => a.name > b.name)
+          .map((building) => (
+            <div
+              className='buildings-list item'
+              key={building.id}
+              onClick={() => setSelectedBuilding(building)}
+            >
+              {building.name}
+            </div>
+          ))}
       </div>
-      {/* <Review author={'mama mo'} score={2.41} text={'bruh'} /> */}
       {restrooms &&
         restrooms?.map((restroom) => (
           <div className='restroom-list' key={restroom.id}>
