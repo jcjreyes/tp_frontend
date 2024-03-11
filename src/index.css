@@ -67,11 +67,13 @@ button:focus-visible {
   }
 }
 
-svg path, svg rect {
+svg path,
+svg rect {
   transition: fill 0.2s ease-in-out; /* Add a smooth transition */
+  transition-delay: 0.15s;
 }
 
-svg path:hover, svg rect:hover {
+svg path:hover,
+svg rect:hover {
   fill: #651940; /* Or your desired highlight color */
 }
-
