@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../store/userStore';
+import '../styles/NavBar.css';
 
 export default function NavBar({ isAuth }) {
   const { logout } = useAuthStore((state) => state);
@@ -10,11 +11,11 @@ export default function NavBar({ isAuth }) {
 
   return (
     <>
-      <div className='nav wrapper'>
-        <div className='nav nav-logo'>
+      <nav className='navbar'>
+        <div className='nav-logo'>
           <Link to='/'>Logo</Link>
         </div>
-        <div className='nav nav-links'>
+        <div className='nav-links'>
           {isAuth ? (
             <form onSubmit={handleLogout}>
               <button type='submit'>Logout</button>
@@ -25,7 +26,7 @@ export default function NavBar({ isAuth }) {
           <Link to='/buildings/map'>Map</Link>
           <Link to='/buildings/list'>List</Link>
         </div>
-      </div>
+      </nav>
     </>
   );
 }
