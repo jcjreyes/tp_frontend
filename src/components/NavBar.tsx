@@ -13,7 +13,9 @@ export default function NavBar({ isAuth }) {
     <>
       <nav className='navbar'>
         <div className='nav-logo'>
-          <Link to='/'>Logo</Link>
+          <Link to='/'>
+            <img className="logo-hero" src="./src/assets/logo.png"/>
+          </Link>
         </div>
         <div className='nav-links'>
           {isAuth ? (

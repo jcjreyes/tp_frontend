@@ -1,8 +1,8 @@
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useAuthStore } from './store/userStore';
 import LoginPage from './pages/LoginPage'; // Import the LoginPage component
 import Home from './pages/Home';
+import './App.css'
 import BuildingsList from './pages/BuildingsList';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import NavBar from './components/NavBar';
