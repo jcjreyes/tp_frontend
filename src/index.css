@@ -15,13 +15,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -90,7 +83,7 @@ svg rect:hover {
 
 /* homepage */
 
-.hero-container{
+.hero-container {
   width: 80vw;
   text-align: left;
   position: relative;
@@ -133,7 +126,7 @@ svg rect:hover {
 .svgwaves {
   stroke-dasharray: 8400;
   stroke-width: 4;
-  stroke:#26275F;
+  stroke: #26275f;
   animation: draw-and-fill-blue 1.6s ease-in-out 0s forwards;
 }
 
@@ -148,7 +141,7 @@ svg rect:hover {
   }
   100% {
     stroke-dashoffset: 0;
-    fill: #26275F;
+    fill: #26275f;
   }
 }
 
@@ -165,4 +158,18 @@ svg rect:hover {
     stroke-dashoffset: 0;
     fill: #651940;
   }
+}
+
+/* Map  */
+
+#map-container {
+  width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+aside {
+  width: 25%;
+  float: right;
+  transition: 0.5s ease;
 }

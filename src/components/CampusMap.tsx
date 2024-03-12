@@ -30,6 +30,7 @@ export default function CampusMap({ setSelectedBuilding }) {
     setZoomLevel(1);
     mapItem.style.fill = unselectedColor;
     setMapItem(null);
+    setSelectedBuilding(null);
   };
 
   return (
@@ -41,7 +42,6 @@ export default function CampusMap({ setSelectedBuilding }) {
         viewBox='0 0 630 775'
         fill='none'
         style={{
-          border: `1px blue solid`,
           zIndex: -200,
           transform: `translate(${newX}px, ${newY}px)`,
           scale: `${zoomLevel}`,
