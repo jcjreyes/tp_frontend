@@ -25,30 +25,27 @@ export default function Buildings() {
     <>
       <div id='map-container'>
         <CampusMap setSelectedBuilding={setSelectedBuilding} />
-        {buildingDetails && selectedBuilding && (
-          <aside className='sidebar'>
-            <div className='building-details'>
-              <span className='building-name'>{buildingDetails?.name}</span>
-              <span className='building-desc'>
-                {buildingDetails?.description}
-              </span>
-            </div>
-            <div className='restroom-list'>
-              {restrooms &&
-                restrooms.map((restroom) => (
-                  <div className='restroom-item' key={restroom.id}>
-                    <span className='restroom-name'>{restroom.name}</span>
-                    <Rating
-                      readonly={true}
-                      initialValue={restroom?.rating}
-                      allowFraction={true}
-                    />
-                  </div>
-                ))}
-            </div>
-          </aside>
-        )}
       </div>
+
+      <aside className={`sidebar ${selectedBuilding ? 'open' : ''}`}>
+        <div className='building-details'>
+          <span className='building-name'>{buildingDetails?.name}</span>
+          <span className='building-desc'>{buildingDetails?.description}</span>
+        </div>
+        <div className='restroom-list'>
+          {restrooms &&
+            restrooms.map((restroom) => (
+              <div className='restroom-item' key={restroom.id}>
+                <span className='restroom-name'>{restroom.name}</span>
+                <Rating
+                  readonly={true}
+                  initialValue={restroom?.rating}
+                  allowFraction={true}
+                />
+              </div>
+            ))}
+        </div>
+      </aside>
     </>
   );
 }

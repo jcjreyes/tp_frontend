@@ -257,7 +257,7 @@ export default function CampusMap({ setSelectedBuilding }) {
         data-name='back-arrow'
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 122.88 108.06'
-        style={{ scale: `0.2`, position: `absolute` }}
+        style={{ scale: `0.2`, position: `absolute`, zIndex: `1001` }}
         onClick={handleUnzoomed}
       >
         <title>back-arrow</title>
