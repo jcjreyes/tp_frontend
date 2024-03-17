@@ -30,6 +30,7 @@ export default function CampusMap({ setSelectedBuilding }) {
     setZoomLevel(1);
     mapItem.style.fill = unselectedColor;
     setMapItem(null);
+    setSelectedBuilding(null);
   };
 
   return (
@@ -41,7 +42,6 @@ export default function CampusMap({ setSelectedBuilding }) {
         viewBox='0 0 630 775'
         fill='none'
         style={{
-          border: `1px blue solid`,
           zIndex: -200,
           transform: `translate(${newX}px, ${newY}px)`,
           scale: `${zoomLevel}`,
@@ -257,7 +257,7 @@ export default function CampusMap({ setSelectedBuilding }) {
         data-name='back-arrow'
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 122.88 108.06'
-        style={{ scale: `0.2`, position: `absolute` }}
+        style={{ scale: `0.2`, position: `absolute`, zIndex: `1001` }}
         onClick={handleUnzoomed}
       >
         <title>back-arrow</title>

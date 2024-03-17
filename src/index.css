@@ -1,10 +1,12 @@
+@import url('https://fonts.google.com/specimen/Fredoka');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Fredoka', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #0d0d0d;
   background-color: #242424;
 
   font-synthesis: none;
@@ -19,7 +21,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  text-shadow: 0px 0px 8px #914b6f;
 }
 
 body {
@@ -28,6 +30,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #fafafa;
 }
 
 h1 {
@@ -76,4 +79,111 @@ svg rect {
 svg path:hover,
 svg rect:hover {
   fill: #651940; /* Or your desired highlight color */
+}
+
+/* homepage */
+
+.hero-container {
+  width: 80vw;
+  text-align: left;
+  position: relative;
+  margin: 0px;
+}
+
+.home-text {
+  z-index: 1;
+  position: absolute;
+  top: 150px;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.home-title {
+  font-size: 124px;
+  line-height: 120px;
+  font-weight: 800;
+}
+
+.home-subtitle {
+  font-size: 36px;
+  padding-left: 24px;
+  font-weight: 600;
+}
+
+.mascot {
+  width: 84vh;
+  float: right;
+  position: absolute;
+  margin-left: 240px;
+  right: 110px;
+  bottom: 50px;
+}
+
+.waves {
+  margin-left: -140px;
+  margin-bottom: -10px;
+}
+
+.svgwaves {
+  stroke-dasharray: 8400;
+  stroke-width: 4;
+  stroke: #26275f;
+  animation: draw-and-fill-blue 1.6s ease-in-out 0s forwards;
+}
+
+@keyframes draw-and-fill-blue {
+  0% {
+    stroke-dashoffset: 8400;
+    fill: transparent;
+  }
+  75% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #26275f;
+  }
+}
+
+@keyframes draw-and-fill-red {
+  0% {
+    stroke-dashoffset: 8400;
+    fill: transparent;
+  }
+  75% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #651940;
+  }
+}
+
+/* Map  */
+
+#map-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  right: -35vw; /* Adjust width as needed */
+  top: 0;
+  height: 100%;
+  width: 35vw; /* Adjust width as needed */
+  background-color: #383965;
+  color: white;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000; /* Ensure it's on top of the map */
+}
+
+.sidebar.open {
+  right: 0;
+  margin-top: 6rem;
 }

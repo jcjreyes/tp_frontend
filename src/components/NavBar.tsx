@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../store/userStore';
 import '../styles/NavBar.css';
+import logo from '../assets/logo.png';
 
 export default function NavBar({ isAuth }) {
   const { logout } = useAuthStore((state) => state);
@@ -13,7 +14,9 @@ export default function NavBar({ isAuth }) {
     <>
       <nav className='navbar'>
         <div className='nav-logo'>
-          <Link to='/'>Logo</Link>
+          <Link to='/'>
+            <img className="logo-hero" src={logo}/>
+          </Link>
         </div>
         <div className='nav-links'>
           {isAuth ? (
