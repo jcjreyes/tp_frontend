@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
+import '../styles/Sidebar.css';
 
 interface Restroom {
   id: string;
@@ -27,23 +28,41 @@ export default function Buildings() {
         <CampusMap setSelectedBuilding={setSelectedBuilding} />
       </div>
 
-      <aside className={`sidebar ${selectedBuilding ? 'open' : ''}`}>
+      <aside className={'sidebar open'}>
+        <div className='building-picture'></div>
         <div className='building-details'>
-          <span className='building-name'>{buildingDetails?.name}</span>
-          <span className='building-desc'>{buildingDetails?.description}</span>
+          <span className='building-name'>{"Cilantro Eastwood"}</span>
+          <span className='building-desc'>{"(Description) Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"}</span>
         </div>
+
         <div className='restroom-list'>
-          {restrooms &&
-            restrooms.map((restroom) => (
-              <div className='restroom-item' key={restroom.id}>
-                <span className='restroom-name'>{restroom.name}</span>
-                <Rating
-                  readonly={true}
-                  initialValue={restroom?.rating}
-                  allowFraction={true}
-                />
+          <div className="column">
+            <button className="button">
+              <div className="button-title">RESTROOM</div>
+              <div className="button-details">
+                <span className="button-rating"> * STARS * </span>
+                <span className="button-distance">100m</span>
               </div>
-            ))}
+            </button>
+          </div>
+          <div className="column">
+            <button className="button">
+              <div className="button-title">BANYO</div>
+              <div className="button-details">
+                <span className="button-rating"> * STARS * </span>
+                <span className="button-distance">100m</span>
+              </div>
+            </button>
+          </div>
+          <div className="column">
+            <button className="button">
+              <div className="button-title">OUT OF ORDER</div>
+              <div className="button-details">
+                <span className="button-rating"> * STARS * </span>
+                <span className="button-distance">100m</span>
+              </div>
+            </button>
+          </div>
         </div>
       </aside>
     </>
