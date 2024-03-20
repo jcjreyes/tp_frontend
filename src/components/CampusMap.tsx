@@ -1,5 +1,8 @@
 import { useState } from 'react';
-export default function CampusMap({ setSelectedBuilding }) {
+export default function CampusMap({
+  setSelectedBuilding,
+  setSelectedRestroom,
+}) {
   const unselectedColor = '#383965';
   const [zoomLevel, setZoomLevel] = useState(1);
 
@@ -31,6 +34,7 @@ export default function CampusMap({ setSelectedBuilding }) {
     mapItem.style.fill = unselectedColor;
     setMapItem(null);
     setSelectedBuilding(null);
+    setSelectedRestroom(null);
   };
 
   return (
