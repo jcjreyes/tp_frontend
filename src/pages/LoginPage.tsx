@@ -12,7 +12,7 @@ export default function LoginPage() {
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value;
 
     const restLogin = await loginRequest(username, password);
-    setToken(restLogin.token);
+    setToken(restLogin.access)
     console.log(restLogin);
 
     // const resProfile = await profileRequest();
