@@ -1,5 +1,6 @@
 import { loginRequest, profileRequest } from '../api/auth';
 import { useAuthStore } from '../store/userStore';
+import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
@@ -15,6 +16,7 @@ export default function LoginPage() {
     setToken(restLogin.access);
     const profile = await profileRequest();
 
+    console.log(profile);
     if (profile.is_staff) {
       setAdmin();
     }
@@ -32,15 +34,21 @@ export default function LoginPage() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type='username' placeholder='username' />
-        <input type='password' placeholder='*******' />
+      <div className='login-container'>
+        <span>Log in to TaePare</span>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='user'>Username</label>
+          <input type='username' placeholder='username' name='user' />
+          <label htmlFor='pass'>Password</label>
+          <input type='password' placeholder='*******' name='pass' />
 
-        <button type='submit'>Login</button>
-      </form>
-      <form onSubmit={handleLogout}>
-        <button type='submit'>Logout</button>
-      </form>
+          <button type='submit'>Log In</button>
+          <Link to='/register'>Create Account</Link>
+        </form>
+        {/*<form onSubmit={handleLogout}>
+          <button type='submit'>Logout</button>
+        </form>*/}
+      </div>
     </>
   );
 }

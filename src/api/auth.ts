@@ -6,6 +6,20 @@ const loginRequest = async (username: string, password: string) => {
     return data;
   } catch (e) {
     console.log(e);
+    return { error: true, msg: e };
+  }
+};
+
+const registerRequest = async (username: string, password: string) => {
+  try {
+    const { data } = await authApi.post('/user/register/', {
+      username,
+      password,
+    });
+    return data;
+  } catch (e) {
+    console.log(e);
+    return { error: true, msg: e };
   }
 };
 
@@ -14,4 +28,4 @@ const profileRequest = async () => {
   return data;
 };
 
-export { loginRequest, profileRequest };
+export { loginRequest, registerRequest, profileRequest };
