@@ -7,12 +7,23 @@ import AddReview from '../components/AddReview';
 import AddRestroom from '../components/AddRestroom';
 
 export default function BuildingsList() {
-  const { data: buildings } = useQuery('buildings', Buildings.getAll);
+  const {
+    data: buildings,
+    isLoading,
+    isError,
+  } = useQuery('buildings', Buildings.getAll);
   const [selectedBuilding, setSelectedBuilding] = useState(null);
   const [selectedRestroom, setSelectedRestroom] = useState(null);
 
   const restrooms = selectedBuilding?.restrooms;
   const isAdmin = useAuthStore.getState().isAdmin;
+
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+  if (isError) {
+    return <span>Error occurred...</span>;
+  }
 
   return (
     <>

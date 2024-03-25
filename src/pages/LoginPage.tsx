@@ -1,9 +1,9 @@
-import { loginRequest } from '../api/auth';
+import { loginRequest, profileRequest } from '../api/auth';
 import { useAuthStore } from '../store/userStore';
 // import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
-  const { setToken, logout } = useAuthStore((state) => state);
+  const { setToken, setAdmin, logout } = useAuthStore((state) => state);
   // const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -12,8 +12,12 @@ export default function LoginPage() {
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value;
 
     const restLogin = await loginRequest(username, password);
-    setToken(restLogin.access)
-    console.log(restLogin);
+    setToken(restLogin.access);
+    const profile = await profileRequest();
+
+    if (profile.is_staff) {
+      setAdmin();
+    }
 
     // const resProfile = await profileRequest();
     // setProfile(resProfile);
@@ -29,7 +33,7 @@ export default function LoginPage() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type='username' placeholder='email@email.com' />
+        <input type='username' placeholder='username' />
         <input type='password' placeholder='*******' />
 
         <button type='submit'>Login</button>
