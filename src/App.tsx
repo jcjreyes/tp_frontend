@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import NavBar from './components/NavBar';
 import Buildings from './pages/Buildings';
 import CreateAccount from './pages/CreateAccount';
+import Profile from './pages/Profile';
 
 function App() {
   const { isAuth } = useAuthStore((state) => state);
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginPage />} /> {console.log(isAuth)}
           <Route path='/register' element={<CreateAccount />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/buildings/list' element={<BuildingsList />} />
           <Route path='/buildings/map' element={<Buildings />} />
         </Routes>

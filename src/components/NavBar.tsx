@@ -9,20 +9,23 @@ export default function NavBar({ isAuth }) {
     e.preventDefault();
     logout();
   };
+  {
+    /*<form onSubmit={handleLogout}>
+              <button type='submit'>Logout</button>
+            </form>*/
+  }
 
   return (
     <>
       <nav className='navbar'>
         <div className='nav-logo'>
           <Link to='/'>
-            <img className="logo-hero" src={logo}/>
+            <img className='logo-hero' src={logo} />
           </Link>
         </div>
         <div className='nav-links'>
           {isAuth ? (
-            <form onSubmit={handleLogout}>
-              <button type='submit'>Logout</button>
-            </form>
+            <Link to='/profile'>Profile</Link>
           ) : (
             <Link to='/login'>Login</Link>
           )}
