@@ -10,7 +10,7 @@ const loginRequest = async (username: string, password: string) => {
 };
 
 const profileRequest = async () => {
-  const { data } = await authApi.get('/auth/profile');
+  const { data } = await authApi.get('/user/profile');
   return data;
 };
 

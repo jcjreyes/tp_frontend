@@ -8,7 +8,7 @@ const update = authApi.put;
 export const Restrooms = {
   getAll: () => get('/restroom/list/').then((resp) => resp.data),
   getOne: (pk) => get(`/restroom/detail/${pk}/`).then((resp) => resp.data),
-  create: ({ ...params }) => post('/restroom/create/', params),
+  create: (params) => post('/restroom/create/', params),
   updateRestroom: (pk, { ...params }) =>
     update(`/restroom/update/${pk}`, params),
   deleteRestroom: (pk) =>
