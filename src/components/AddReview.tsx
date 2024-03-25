@@ -9,7 +9,6 @@ export default function AddReview({ selectedRestroom }) {
     defaultValues: {
       restroom: selectedRestroom?.id,
       rating: { rating: ratingVal },
-      images: [{}],
     },
   });
 
@@ -27,7 +26,6 @@ export default function AddReview({ selectedRestroom }) {
       reset({
         restroom: selectedRestroom?.id || '',
         rating: { rating: ratingVal || 0 },
-        images: [{}],
       });
     },
     [selectedRestroom, ratingVal, reset],
@@ -77,7 +75,7 @@ export default function AddReview({ selectedRestroom }) {
                     type='file'
                     {...register(`images.${index}` as const)}
                   />
-                  {index > 0 && (
+                  {index >= 0 && (
                     <button type='button' onClick={() => remove(index)}>
                       Remove Photo
                     </button>
