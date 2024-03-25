@@ -14,6 +14,7 @@ type State = {
 
 type Actions = {
   setToken: (token: string) => void;
+  setAdmin: () => void;
   setProfile: (profile: Profile) => void;
   logout: () => void;
 };
@@ -29,8 +30,8 @@ export const useAuthStore = create(
         set(() => ({
           token,
           isAuth: true,
-          isAdmin: true,
         })),
+      setAdmin: () => set(() => ({ isAdmin: true })),
       setProfile: (profile: Profile) => set(() => ({ profile })),
       logout: () =>
         set(() => ({
