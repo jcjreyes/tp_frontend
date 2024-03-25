@@ -1,5 +1,5 @@
 import { registerRequest } from '../api/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function CreateAccount() {
@@ -42,6 +42,7 @@ export default function CreateAccount() {
           <input type='password' placeholder='*******' name='pass' />
 
           <button type='submit'>Register</button>
+          <Link to='/login'>Have an Account?</Link>
         </form>
         <div className='alert-container'>
           {errorMessage && (
