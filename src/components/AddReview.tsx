@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler, useFieldArray } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import { Rating } from 'react-simple-star-rating';
+import { Reviews } from '../api/requests/Reviews';
 
 export default function AddReview({ selectedRestroom }) {
   const [ratingVal, setRatingVal] = useState(0);
@@ -37,10 +38,24 @@ export default function AddReview({ selectedRestroom }) {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      // const response = await Reviews.create(data);
-      // console.log('Review created: ', response.data);
-      // reset();
-      console.log(data);
+      const formData = new FormData();
+      const images = data?.images;
+      if (images) {
+        images.forEach((image, index) => {
+          formData.append(`images[${index}]image`, image[0]);
+          console.log(image[0]);
+        });
+      }
+
+      formData.append('restroom', data?.restroom);
+      formData.append('rating.rating', parseFloat(ratingVal));
+      formData.append('content', data?.content);
+
+      console.log(formData);
+      const response = await Reviews.create(formData);
+      console.log('Review created: ', response.data);
+      console.log(response);
+      reset();
     } catch (e) {
       console.error('Error: ', e.response);
     }

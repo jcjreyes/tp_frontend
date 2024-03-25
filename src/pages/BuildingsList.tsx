@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useAuthStore } from '../store/userStore';
 import AddReview from '../components/AddReview';
 import AddRestroom from '../components/AddRestroom';
+import RestroomDetails from '../components/RestroomDetails';
 
 export default function BuildingsList() {
   const {
@@ -60,7 +61,7 @@ export default function BuildingsList() {
           </div>
         ))}
       {isAdmin && <p>You are an admin.</p>}
-      {selectedRestroom && <AddReview selectedRestroom={selectedRestroom} />}
+      {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
       <AddRestroom building={selectedBuilding} />
     </>
   );
