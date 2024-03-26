@@ -27,12 +27,14 @@ export default function Profile() {
 
   return (
     <>
+      {console.log(profile)}
       <div className='profile-container'>
         <div className='profile-left'>
           <div className='profile-summary'>
             <span className='profile-username'>{profile?.username}</span>
             <span className='profile-reviewCount'>
-              {profile?.reviews.length} reviews
+              {profile?.reviews.length}{' '}
+              {profile?.reviews.length == 1 ? 'review' : 'reviews'}
             </span>
           </div>
           <form onSubmit={handleLogout}>
@@ -40,9 +42,19 @@ export default function Profile() {
           </form>
         </div>
         <div className='profile-right'>
-          {profile?.reviews.map((review) => (
-            <Review author={review} score={5} text={'test'} />
-          ))}
+          <div className='profile-right-header'>
+            <span>Your Reviews</span>
+          </div>
+          <div className='profile-review-list'>
+            {profile?.reviews.map((review) => (
+              <Review
+                author={review.author.username}
+                score={review.rating.rating}
+                text={review.content}
+                restroom={review.rating.restroom}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

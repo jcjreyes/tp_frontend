@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom';
 import { useAuthStore } from '../store/userStore';
 import '../styles/NavBar.css';
 import logo from '../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavBar({ isAuth }) {
   const { logout } = useAuthStore((state) => state);
+  const { navigate } = useNavigate();
   const handleLogout = async (e) => {
     e.preventDefault();
     logout();
+    navigate('/login');
   };
   {
     /*<form onSubmit={handleLogout}>
@@ -31,6 +34,11 @@ export default function NavBar({ isAuth }) {
           )}
           <Link to='/buildings/map'>Map</Link>
           <Link to='/buildings/list'>List</Link>
+          {isAuth && (
+            <form onSubmit={handleLogout}>
+              <button type='submit'>Logout</button>
+            </form>
+          )}
         </div>
       </nav>
     </>
