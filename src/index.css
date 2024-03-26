@@ -31,6 +31,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #fafafa;
+
+  overflow: hidden;
+  /* hides scrollbars */
 }
 
 h1 {
@@ -93,13 +96,15 @@ svg rect:hover {
 .home-text {
   z-index: 1;
   position: absolute;
-  top: 150px;
+  top: 200px;
+  padding-left: 140px;
   color: rgba(255, 255, 255, 0.87);
+  transform: scale(1.4);
 }
 
 .home-title {
   font-size: 124px;
-  line-height: 120px;
+  line-height: 100px;
   font-weight: 800;
 }
 
@@ -110,7 +115,7 @@ svg rect:hover {
 }
 
 .mascot {
-  width: 84vh;
+  width: 90vh;
   float: right;
   position: absolute;
   margin-left: 240px;
@@ -120,15 +125,49 @@ svg rect:hover {
 
 .waves {
   margin-left: -140px;
-  margin-bottom: -10px;
+  margin-TOP: -50px;
+  transform: scale(0.985);
+  z-index: -1;
+
+}
+
+.waves2 {
+  position: absolute;
+  z-index: -1.4;
+  transform: rotate(174deg) scale(0.84);
+  bottom: -94px;
+  left: 32vw;
+}
+
+.waves3 {
+  position: absolute;
+  z-index: -1.9;
+  transform: rotate(1.6deg) scale(1.2);
+  bottom: -8.4vh;
+  left: -60px;
 }
 
 .svgwaves {
   stroke-dasharray: 8400;
   stroke-width: 4;
   stroke: #26275f;
-  animation: draw-and-fill-blue 1.6s ease-in-out 0s forwards;
+  animation: draw-and-fill-blue 1.2s ease-in-out 0s forwards;
 }
+
+.svgwaves2 {
+  stroke-dasharray: 8400;
+  stroke-width: 4;
+  stroke: #651940;
+  animation: draw-and-fill-red 1.2s ease-in-out 0s forwards;
+}
+
+.svgwaves3 {
+  stroke-dasharray: 8400;
+  stroke-width: 4;
+  stroke: #F0C7A7;
+  animation: draw-and-fill-yellow 1.2s ease-in-out 0s forwards;
+}
+
 
 @keyframes draw-and-fill-blue {
   0% {
@@ -157,6 +196,21 @@ svg rect:hover {
   100% {
     stroke-dashoffset: 0;
     fill: #651940;
+  }
+}
+
+@keyframes draw-and-fill-yellow {
+  0% {
+    stroke-dashoffset: 8400;
+    fill: transparent;
+  }
+  75% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #F0C7A7;
   }
 }
 
