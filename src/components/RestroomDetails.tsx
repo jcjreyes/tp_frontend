@@ -18,7 +18,6 @@ export default function RestroomDetails({ restroom }) {
   const [hasReview, setHasReview] = useState(false);
   const reviews = details?.reviews;
 
-
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -30,19 +29,35 @@ export default function RestroomDetails({ restroom }) {
   return (
     <>
       {console.log(details)}
-      {reviews &&
-        reviews.map((review) => (
-          <Review
-            author={review.author.username}
-            score={review.rating.rating}
-            text={review.content}
-          />
-        ))}
+      <div className='review-list'>
+        {reviews &&
+          reviews.map((review) => (
+            <Review
+              author={review.author.username}
+              score={review.rating.rating}
+              text={review.content}
+            />
+            
+          ))}
+      </div>
+      <div className='tags'>
+        <span>
+          Tags:{' '}
+          {details?.tags.map((tag, idx) => (
+            <span>
+              {tag.name}
+              {details?.tags.length - 1 == idx ? '' : ', '}
+            </span>
+          ))}
+        </span>
+      </div>
       <div className='dropdown'>
         <button onClick={() => setShowReviewForm(!showReviewForm)}>
           {showReviewForm ? 'Hide Review Form' : 'Add Review'}
         </button>
-        {showReviewForm && <AddReview selectedRestroom={details} onAdd={refetch} />}
+        {showReviewForm && (
+          <AddReview selectedRestroom={details} onAdd={refetch} />
+        )}
       </div>
     </>
   );
