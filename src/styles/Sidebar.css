@@ -1,0 +1,145 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #1a1b4c; /* Background color of the navbar */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding around the navbar */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Align items with space between them */
+  align-items: right;
+  z-index: 9999;
+  padding: 2.5% 2% 2.5% 2%;
+}
+
+.sidebar {
+  position: fixed;
+  right: -35vw; /* Adjust width as needed */
+  top: 0;
+  height: 100%;
+  width: 35vw; /* Adjust width as needed */
+  background-color: #383965;
+  color: white;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000; /* Ensure it's on top of the map */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.sidebar.open {
+  right: 0;
+  margin-top: 6rem;
+}
+
+.building-picture {
+  height: 23%;
+  width: 100%;
+}
+
+.building-name {
+  padding: 3%;
+  font-size: xxx-large;
+}
+
+.building-desc {
+  padding: 3%;
+}
+
+.building-details {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+
+.restroom-list {
+  padding: 3%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.restroom-item {
+  border-radius: 50px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 23px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.restroom-item .frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.restroom-item .restroom-name {
+  position: relative;
+  width: 190px;
+  height: 34px;
+  margin-top: -1px;
+  font-family: "Young Serif-Regular", Helvetica;
+  font-weight: 400;
+  color: #383965;
+  font-size: 25px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.restroom-item .restroom-other {
+  display: inline-flex;
+  align-items: center;
+  gap: 39px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.restroom-item .stars {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.restroom-item .text-wrapper {
+  width: 109px;
+  height: 22px;
+  margin-top: -1px;
+  font-family: "Visby Round CF-ExtraBold", Helvetica;
+  font-weight: 800;
+  color: #383965;
+  font-size: 20px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+
+
+
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 5px;
+  font-size: 16px;
+  width: 95%;
+  background-color: #ffffff;
+  color: #383965;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+

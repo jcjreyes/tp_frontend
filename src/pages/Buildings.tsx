@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
 import RestroomDetails from '../components/RestroomDetails';
+import '../styles/Sidebar.css';
 
 interface Restroom {
   id: string;
@@ -43,10 +44,22 @@ export default function Buildings() {
       </div>
 
       <aside className={`sidebar ${selectedBuilding ? 'open' : ''}`}>
+        <div className='building-picture'>
+          <img
+            src='pic.jpg'
+            alt='Image not found'
+            width='100%'
+            height='100%'
+          ></img>
+        </div>
         <div className='building-details'>
           <span className='building-name'>{buildingDetails?.name}</span>
           <span className='building-desc'>{buildingDetails?.description}</span>
         </div>
+        <center>
+          {' '}
+          <h2> Toilets Available: </h2>{' '}
+        </center>
         <div className='restroom-list'>
           {!selectedRestroom &&
             restrooms &&
@@ -57,13 +70,61 @@ export default function Buildings() {
                 onClick={() => setSelectedRestroom(restroom)}
               >
                 <span className='restroom-name'>{restroom.name}</span>
-                <Rating
-                  readonly={true}
-                  initialValue={restroom?.rating}
-                  allowFraction={true}
-                />
+                <div className='restroom-other'>
+                  <Rating
+                    readonly={true}
+                    initialValue={restroom?.rating}
+                    allowFraction={true}
+                  />
+                  <div className='text-wrapper'>183m</div>
+                </div>
+              </div>
+            ))}{!selectedRestroom &&
+            restrooms &&
+            restrooms.map((restroom) => (
+              <div
+                className='restroom-item'
+                key={restroom.id}
+                onClick={() => setSelectedRestroom(restroom)}
+              >
+                <span className='restroom-name'>{restroom.name}</span>
+                <div className='restroom-other'>
+                  <Rating
+                    readonly={true}
+                    initialValue={restroom?.rating}
+                    allowFraction={true}
+                  />
+                  <div className='text-wrapper'>183m</div>
+                </div>
               </div>
             ))}
+          <button className='toilet-button'>
+            <div className='frame'>
+              <div className='text'> Insert Text Here</div>
+              <div className='div'>
+                <img className='stars' alt='Frame' src='frame-1.svg' />
+                <div className='text-wrapper'>183m</div>
+              </div>
+            </div>
+          </button>
+          <button className='toilet-button'>
+            <div className='frame'>
+              <div className='text'> Bathroom Here </div>
+              <div className='div'>
+                <img className='stars' alt='Frame' src='frame-1.svg' />
+                <div className='text-wrapper'>183m</div>
+              </div>
+            </div>
+          </button>
+          <button className='toilet-button'>
+            <div className='frame'>
+              <div className='text'> Another Banyo </div>
+              <div className='div'>
+                <img className='stars' alt='Frame' src='frame-1.svg' />
+                <div className='text-wrapper'>183m</div>
+              </div>
+            </div>
+          </button>
         </div>
         <div className='restroom-details'>
           {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
