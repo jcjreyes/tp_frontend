@@ -2,7 +2,7 @@ import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form';
 import { useEffect } from 'react';
 import { Restrooms } from '../api/requests/Restrooms';
 
-export default function AddRestroom({ building }) {
+export default function AddRestroom({ building, onAdd }) {
   const {
     register,
     handleSubmit,
@@ -42,6 +42,10 @@ export default function AddRestroom({ building }) {
       const response = await Restrooms.create(formData);
       console.log(response);
       reset();
+
+      if (onAdd) {
+        onAdd();
+      }
     } catch (e) {
       console.error('Error: ', e.response);
     }

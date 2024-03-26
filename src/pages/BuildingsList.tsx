@@ -12,6 +12,7 @@ export default function BuildingsList() {
     data: buildings,
     isLoading,
     isError,
+    refetch,
   } = useQuery('buildings', Buildings.getAll);
   const [selectedBuilding, setSelectedBuilding] = useState(null);
   const [selectedRestroom, setSelectedRestroom] = useState(null);
@@ -62,7 +63,7 @@ export default function BuildingsList() {
         ))}
       {isAdmin && <p>You are an admin.</p>}
       {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
-      <AddRestroom building={selectedBuilding} />
+      <AddRestroom building={selectedBuilding} onAdd={refetch} />
     </>
   );
 }

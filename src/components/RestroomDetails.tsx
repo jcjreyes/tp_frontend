@@ -32,7 +32,7 @@ export default function RestroomDetails({ restroom }) {
       {reviews &&
         reviews.map((review) => (
           <Review
-            author={review.author}
+            author={review.author.username}
             score={review.rating.rating}
             text={review.content}
           />
