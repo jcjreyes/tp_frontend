@@ -3,7 +3,6 @@ import { Buildings } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
 import { useState } from 'react';
 import { useAuthStore } from '../store/userStore';
-import AddReview from '../components/AddReview';
 import AddRestroom from '../components/AddRestroom';
 import RestroomDetails from '../components/RestroomDetails';
 
@@ -39,6 +38,7 @@ export default function BuildingsList() {
               onClick={() => {
                 setSelectedBuilding(building);
                 setSelectedRestroom(null);
+                console.log(restrooms);
               }}
             >
               {building.name}
@@ -64,6 +64,13 @@ export default function BuildingsList() {
               </span>
             </div>
           ))}
+        {restrooms?.length == 0 && (
+          <div className='restroom-container'>
+            <span className='restroom-error'>
+              There are no restrooms available.
+            </span>
+          </div>
+        )}
       </div>
       {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
       {isAdmin && <AddRestroom building={selectedBuilding} onAdd={refetch} />}
