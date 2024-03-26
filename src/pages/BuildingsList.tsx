@@ -61,9 +61,8 @@ export default function BuildingsList() {
             <span className='restroom-description'>{restroom.description}</span>
           </div>
         ))}
-      {isAdmin && <p>You are an admin.</p>}
       {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
-      <AddRestroom building={selectedBuilding} onAdd={refetch} />
+      {isAdmin && <AddRestroom building={selectedBuilding} onAdd={refetch} />}
     </>
   );
 }

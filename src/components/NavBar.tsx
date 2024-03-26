@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NavBar({ isAuth }) {
   const { logout } = useAuthStore((state) => state);
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const handleLogout = async (e) => {
     e.preventDefault();
     logout();
