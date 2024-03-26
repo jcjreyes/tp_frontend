@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import { Reviews } from '../api/requests/Reviews';
 
-export default function AddReview({ selectedRestroom }) {
+export default function AddReview({ selectedRestroom, onAdd }) {
   const [ratingVal, setRatingVal] = useState(0);
 
   const form = useForm<Inputs>({
@@ -56,6 +56,10 @@ export default function AddReview({ selectedRestroom }) {
       console.log('Review created: ', response.data);
       console.log(response);
       reset();
+
+      if (onAdd) {
+        onAdd();
+      }
     } catch (e) {
       console.error('Error: ', e.response);
     }

@@ -9,6 +9,7 @@ export default function RestroomDetails({ restroom }) {
     data: details,
     isLoading,
     isError,
+    refetch,
   } = useQuery(['restroom', restroom?.id], () =>
     Restrooms.getOne(restroom?.id),
   );
@@ -41,7 +42,7 @@ export default function RestroomDetails({ restroom }) {
         <button onClick={() => setShowReviewForm(!showReviewForm)}>
           {showReviewForm ? 'Hide Review Form' : 'Add Review'}
         </button>
-        {showReviewForm && <AddReview selectedRestroom={details} />}
+        {showReviewForm && <AddReview selectedRestroom={details} onAdd={refetch} />}
       </div>
     </>
   );

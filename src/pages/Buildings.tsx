@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
-import AddReview from '../components/AddReview';
+import RestroomDetails from '../components/RestroomDetails';
 
 interface Restroom {
   id: string;
@@ -48,7 +48,8 @@ export default function Buildings() {
           <span className='building-desc'>{buildingDetails?.description}</span>
         </div>
         <div className='restroom-list'>
-          {restrooms &&
+          {!selectedRestroom &&
+            restrooms &&
             restrooms.map((restroom) => (
               <div
                 className='restroom-item'
@@ -64,6 +65,9 @@ export default function Buildings() {
               </div>
             ))}
         </div>
+        <div className='restroom-details'>
+          {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
+        </div>
         <svg
           id='back-arrow'
           data-name='back-arrow'
@@ -78,7 +82,6 @@ export default function Buildings() {
           <title>back-arrow</title>
           <path d='M63.94,24.28a14.28,14.28,0,0,0-20.36-20L4.1,44.42a14.27,14.27,0,0,0,0,20l38.69,39.35a14.27,14.27,0,0,0,20.35-20L48.06,68.41l60.66-.29a14.27,14.27,0,1,0-.23-28.54l-59.85.28,15.3-15.58Z' />
         </svg>
-        {selectedRestroom && <AddReview selectedRestroom={selectedRestroom} />}
       </aside>
     </>
   );
