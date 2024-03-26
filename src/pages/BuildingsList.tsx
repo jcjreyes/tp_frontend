@@ -45,22 +45,26 @@ export default function BuildingsList() {
             </div>
           ))}
       </div>
-      {restrooms &&
-        restrooms?.map((restroom) => (
-          <div
-            className='restroom-list'
-            key={restroom.id}
-            onClick={() => setSelectedRestroom(restroom)}
-          >
-            <span className='restroom-name'>{restroom.name}</span>
-            <Rating
-              readonly={true}
-              initialValue={restroom.rating}
-              allowFraction={true}
-            />
-            <span className='restroom-description'>{restroom.description}</span>
-          </div>
-        ))}
+      <div className='restroom-list'>
+        {restrooms &&
+          restrooms?.map((restroom) => (
+            <div
+              className='restroom-container'
+              key={restroom.id}
+              onClick={() => setSelectedRestroom(restroom)}
+            >
+              <span className='restroom-name'>{restroom.name}</span>
+              <Rating
+                readonly={true}
+                initialValue={restroom.rating}
+                allowFraction={true}
+              />
+              <span className='restroom-description'>
+                {restroom.description}
+              </span>
+            </div>
+          ))}
+      </div>
       {selectedRestroom && <RestroomDetails restroom={selectedRestroom} />}
       {isAdmin && <AddRestroom building={selectedBuilding} onAdd={refetch} />}
     </>
