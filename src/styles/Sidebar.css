@@ -56,10 +56,11 @@
 
 
 .restroom-list {
-  padding: 3%;
+  padding: 12px;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-template-rows: max-content;
 }
 
 .restroom-item {
@@ -67,10 +68,10 @@
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  padding: 9px 23px;
+  padding: 16px 24px;
   position: relative;
   background-color: #ffffff;
+  height: 116px;
 }
 
 .restroom-item .frame {
@@ -83,9 +84,6 @@
 
 .restroom-item .restroom-name {
   position: relative;
-  width: 190px;
-  height: 34px;
-  margin-top: -1px;
   font-family: "Young Serif-Regular", Helvetica;
   font-weight: 400;
   color: #383965;
@@ -97,9 +95,16 @@
 .restroom-item .restroom-other {
   display: inline-flex;
   align-items: center;
-  gap: 39px;
   position: relative;
   flex: 0 0 auto;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.restroom-item .restroom-other > span {
+  height: 36px;
+  overflow-y: hidden;
 }
 
 .restroom-item .stars {
@@ -107,9 +112,11 @@
   flex: 0 0 auto;
 }
 
+.restroom-item .star-svg {
+  width: 20px;
+}
+
 .restroom-item .text-wrapper {
-  width: 109px;
-  height: 22px;
   margin-top: -1px;
   font-family: "Visby Round CF-ExtraBold", Helvetica;
   font-weight: 800;
@@ -143,3 +150,12 @@
   transition: background-color 0.3s ease;
 }
 
+.building-details.restroom-information {
+  background-color: #fff;
+  color: black;
+  padding: 24px 12px;
+}
+
+.building-details.restroom-information .building-name {
+  padding: 0;
+}

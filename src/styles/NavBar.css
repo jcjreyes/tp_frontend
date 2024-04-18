@@ -32,6 +32,7 @@
   margin-right: 2.4%;
 }
 
+.nav-links a + form button,
 .nav-links a {
   text-decoration: none;
   color: #fff;
