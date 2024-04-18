@@ -14,7 +14,7 @@ export default function RestroomDetails({ restroom }) {
     Restrooms.getOne(restroom?.id),
   );
 
-  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [showReviewForm, setShowReviewForm] = useState(true);
   const [hasReview, setHasReview] = useState(false);
   const reviews = details?.reviews;
 
@@ -29,6 +29,11 @@ export default function RestroomDetails({ restroom }) {
   return (
     <>
       {console.log(details)}
+      <div className='dropdown'>
+        {showReviewForm && (
+          <AddReview selectedRestroom={details} onAdd={refetch} />
+        )}
+      </div>
       <div className='review-list'>
         {reviews &&
           reviews.map((review) => (
@@ -48,14 +53,6 @@ export default function RestroomDetails({ restroom }) {
             </span>
           ))}
         </span>
-      </div>
-      <div className='dropdown'>
-        <button onClick={() => setShowReviewForm(!showReviewForm)}>
-          {showReviewForm ? 'Hide Review Form' : 'Add Review'}
-        </button>
-        {showReviewForm && (
-          <AddReview selectedRestroom={details} onAdd={refetch} />
-        )}
       </div>
     </>
   );

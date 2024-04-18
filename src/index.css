@@ -371,5 +371,14 @@ aside.sidebar .restroom-details h3 {
 }
 
 .dropdown {
-  padding: 24px 12px;
+  /* padding: 24px 12px; */
+  padding: 0.5rem 0rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown button {
+  background-color: #F0C7A7;
+  color: #efefef;
 }
