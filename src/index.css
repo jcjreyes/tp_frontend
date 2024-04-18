@@ -1,4 +1,8 @@
 @import url('https://fonts.google.com/specimen/Fredoka');
+@font-face {
+  font-family: 'Bubbly';
+  src: url('./fonts/Bubbly.otf') format('opentype');
+}
 
 :root {
   font-family: 'Fredoka', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
