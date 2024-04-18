@@ -85,41 +85,43 @@ export default function Buildings() {
         }
         {
           !selectedRestroom &&
-        <div className='building-details'>
-          <span className='building-name'>{buildingDetails?.name}</span>
-          <span className='building-desc'>{buildingDetails?.description}</span>
-        </div>
+          <div className='building-details'>
+            <span className='building-name'>{buildingDetails?.name}</span>
+            <span className='building-desc'>{buildingDetails?.description}</span>
+          </div>
         }
         {
           !selectedRestroom &&
           <center>
-            {' '}
-            <h2> Toilets Available: </h2>{' '}
+            {restrooms?.length != 0 ?
+              (<h2> Toilets Available: </h2>) :
+              (<h2>There are no toilets available.</h2>)
+            }
           </center>
         }
         {
           !selectedRestroom &&
-        <div className='restroom-list'>
-          {!selectedRestroom &&
-            restrooms &&
-            restrooms.map((restroom) => (
-              <div
-                className='restroom-item'
-                key={restroom.id}
-                onClick={() => setSelectedRestroom(restroom)}
-              >
-                <span className='restroom-name'>{restroom.name}</span>
-                <div className='restroom-other'>
-                  <Rating
-                    readonly={true}
-                    initialValue={restroom?.rating}
-                    allowFraction={true}
-                  />
-                  <div className='text-wrapper'>183m</div>
+          <div className='restroom-list'>
+            {!selectedRestroom &&
+              restrooms &&
+              restrooms.map((restroom) => (
+                <div
+                  className='restroom-item'
+                  key={restroom.id}
+                  onClick={() => setSelectedRestroom(restroom)}
+                >
+                  <span className='restroom-name'>{restroom.name}</span>
+                  <div className='restroom-other'>
+                    <Rating
+                      readonly={true}
+                      initialValue={restroom?.rating}
+                      allowFraction={true}
+                    />
+                    <div className='text-wrapper'>183m</div>
+                  </div>
                 </div>
-              </div>
-            ))}
-        </div>
+              ))}
+          </div>
         }
         {
           selectedRestroom &&
