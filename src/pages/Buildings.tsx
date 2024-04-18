@@ -5,6 +5,7 @@ import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
 import RestroomDetails from '../components/RestroomDetails';
 import '../styles/Sidebar.css';
+import jgsom from '../assets/jgsom.png'
 
 interface Restroom {
   id: string;
@@ -60,7 +61,7 @@ export default function Buildings() {
         </svg>
         <div className='building-picture'>
           <img
-            src='pic.jpg'
+            src={jgsom}
             alt='Image not found'
             width='100%'
             height='100%'

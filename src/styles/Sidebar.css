@@ -39,11 +39,11 @@
 
 .sidebar.open {
   right: 0;
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
 }
 
 .building-picture {
-  height: 23%;
+  height: 100%;
   width: 100%;
 }
 
@@ -161,6 +161,7 @@
   background-color: #fff;
   color: black;
   padding: 24px 12px;
+  margin-top: -20px;
 }
 
 .building-details.restroom-information .building-name {
