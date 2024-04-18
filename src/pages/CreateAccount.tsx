@@ -33,16 +33,19 @@ export default function CreateAccount() {
 
   return (
     <>
+    <main className="login-page-body">
       <div className='register-container'>
-        <span>Join TaePare</span>
+      <img className="mascot-register" src="./src/assets/mascot.png"/>
+        <h1>Join TaePare</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor='user'>Username</label>
           <input type='username' placeholder='username' name='user' />
           <label htmlFor='pass'>Password</label>
           <input type='password' placeholder='*******' name='pass' />
-
-          <button type='submit'>Register</button>
-          <Link to='/login'>Have an Account?</Link>
+          <div className="login-actions">   
+            <button type='submit'>Register</button>
+            <Link to='/login'>Have an Account?</Link>
+          </div>
         </form>
         <div className='alert-container'>
           {errorMessage && (
@@ -56,6 +59,7 @@ export default function CreateAccount() {
           )}
         </div>
       </div>
+    </main>
     </>
   );
 }
