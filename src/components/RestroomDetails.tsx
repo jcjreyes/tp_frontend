@@ -42,11 +42,9 @@ export default function RestroomDetails({ restroom }) {
       </div>
       <div className='tags'>
         <span>
-          Tags:{' '}
           {details?.tags.map((tag, idx) => (
-            <span>
+            <span className="tag">
               {tag.name}
-              {details?.tags.length - 1 == idx ? '' : ', '}
             </span>
           ))}
         </span>
