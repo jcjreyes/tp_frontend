@@ -1,0 +1,72 @@
+.profile-container {
+    background-color: 914B6F;
+}
+
+.profile-split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+  }
+
+
+.left {
+    padding-top: 30%;
+    top: 0;
+    background-color: #F0C7A7;
+    left: 0;
+    text-align: center;
+}
+
+.right {
+    padding-top: 10%;
+    padding-left: 5%;
+    top: 0;
+    background-color: #914B6F;
+    right: 0;
+}
+
+.profile-username {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.profile-reviewCount {
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-right-header {
+    text-align: left;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.profile-review-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    width: 50%;
+}
+
+/* for the review box content */
+
+.review-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .review-subheader {
+  }
+  
+  .review-description {
+    font-size: 16px;
+    color: #333;
+  }

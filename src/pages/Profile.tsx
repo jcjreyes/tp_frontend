@@ -2,6 +2,8 @@ import { useQuery } from 'react-query';
 import { useAuthStore } from '../store/userStore';
 import { profileRequest } from '../api/auth';
 import Review from '../components/Review';
+import '../styles/Profile.css';
+import { Rating } from 'react-simple-star-rating';
 
 export default function Profile() {
   const {
@@ -28,31 +30,32 @@ export default function Profile() {
   return (
     <>
       {console.log(profile)}
+      {console.log(profile?.reviews)}
       <div className='profile-container'>
-        <div className='profile-left'>
+        <div className='profile-split left'>
           <div className='profile-summary'>
             <span className='profile-username'>{profile?.username}</span>
-            <span className='profile-reviewCount'>
+            <div className='profile-reviewCount'>
               {profile?.reviews.length}{' '}
               {profile?.reviews.length == 1 ? 'review' : 'reviews'}
-            </span>
+            </div>
           </div>
           <form onSubmit={handleLogout}>
             <button type='submit'>Logout</button>
           </form>
         </div>
-        <div className='profile-right'>
+        <div className='profile-split right'>
           <div className='profile-right-header'>
-            <span>Your Reviews</span>
+            <span className = 'review-header'>Your Reviews</span>
           </div>
           <div className='profile-review-list'>
             {profile?.reviews.map((review) => (
-              <Review
-                author={review.author.username}
-                score={review.rating.rating}
-                text={review.content}
-                restroom={review.rating.restroom}
-              />
+              <div key={review.id} className="review-box">
+                <span className='review-header'>{review.rating.restroom.split("-")[0]}</span>
+                <div className='review-subheader'>
+                  {<Rating readonly={true} initialValue={review.rating.rating} allowFraction={true} />}
+                </div>
+              </div>
             ))}
           </div>
         </div>
