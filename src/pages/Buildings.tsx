@@ -5,6 +5,7 @@ import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
 import RestroomDetails from '../components/RestroomDetails';
 import '../styles/Sidebar.css';
+import som_pic from '../assets/jgsom.png';
 
 interface Restroom {
   id: string;
@@ -39,6 +40,7 @@ export default function Buildings() {
           setSelectedRestroom={setSelectedRestroom}
           onUnzoom={handleUnzoom}
           isZoomed={isZoomed}
+          setIsZoomed={setIsZoomed}
           ref={childFnRef}
         />
       </div>
@@ -60,14 +62,13 @@ export default function Buildings() {
         </svg>
         <div className='building-picture'>
           <img
-            src='pic.jpg'
+            src={som_pic}
             alt='Image not found'
             width='100%'
             height='100%'
           ></img>
         </div>
-        {
-          selectedRestroom &&
+        {selectedRestroom && (
           <div className='building-details restroom-information'>
             <span className='building-name'>{selectedRestroom?.name}</span>
             <Rating
@@ -76,58 +77,60 @@ export default function Buildings() {
               allowFraction={true}
             />
           </div>
-        }
-        {
-          selectedRestroom &&
+        )}
+        {selectedRestroom && (
           <div className='restroom-description-box'>
-            <span className='building-desc'>{selectedRestroom?.description}</span>
+            <span className='building-desc'>
+              {selectedRestroom?.description}
+            </span>
           </div>
-        }
-        {
-          !selectedRestroom &&
-        <div className='building-details'>
-          <span className='building-name'>{buildingDetails?.name}</span>
-          <span className='building-desc'>{buildingDetails?.description}</span>
-        </div>
-        }
-        {
-          !selectedRestroom &&
+        )}
+        {!selectedRestroom && (
+          <div className='building-details'>
+            <span className='building-name'>{buildingDetails?.name}</span>
+            <span className='building-desc'>
+              {buildingDetails?.description}
+            </span>
+          </div>
+        )}
+        {!selectedRestroom && (
           <center>
-            {' '}
-            <h2> Toilets Available: </h2>{' '}
+            {restrooms?.length != 0 ? (
+              <h2> Toilets Available: </h2>
+            ) : (
+              <h2>There are no toilets available.</h2>
+            )}
           </center>
-        }
-        {
-          !selectedRestroom &&
-        <div className='restroom-list'>
-          {!selectedRestroom &&
-            restrooms &&
-            restrooms.map((restroom) => (
-              <div
-                className='restroom-item'
-                key={restroom.id}
-                onClick={() => setSelectedRestroom(restroom)}
-              >
-                <span className='restroom-name'>{restroom.name}</span>
-                <div className='restroom-other'>
-                  <Rating
-                    readonly={true}
-                    initialValue={restroom?.rating}
-                    allowFraction={true}
-                  />
-                  <div className='text-wrapper'>183m</div>
+        )}
+        {!selectedRestroom && (
+          <div className='restroom-list'>
+            {!selectedRestroom &&
+              restrooms &&
+              restrooms.map((restroom) => (
+                <div
+                  className='restroom-item'
+                  key={restroom.id}
+                  onClick={() => setSelectedRestroom(restroom)}
+                >
+                  <span className='restroom-name'>{restroom.name}</span>
+                  <div className='restroom-other'>
+                    <Rating
+                      readonly={true}
+                      initialValue={restroom?.rating}
+                      allowFraction={true}
+                    />
+                    <div className='text-wrapper'>183m</div>
+                  </div>
                 </div>
-              </div>
-            ))}
-        </div>
-        }
-        {
-          selectedRestroom &&
+              ))}
+          </div>
+        )}
+        {selectedRestroom && (
           <div className='restroom-details'>
             <h3>Reviews</h3>
             <RestroomDetails restroom={selectedRestroom} />
           </div>
-        }
+        )}
       </aside>
     </>
   );

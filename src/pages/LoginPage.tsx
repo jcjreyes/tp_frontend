@@ -33,28 +33,28 @@ export default function LoginPage() {
 
   return (
     <>
-    <main className="login-page-body">
-      <div className='login-container'>
-      <img className="mascot-login" src="./src/assets/mascot.png"/>
+      <main className="login-page-body">
+        <div className='login-container'>
+          <img className="mascot-login" src="./src/assets/mascot.png" />
           <h1>Log in to TaePare</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor='user'>Username</label>
             <input type='username' placeholder='username' name='user' />
             <label htmlFor='pass'>Password</label>
             <input type='password' placeholder='*******' name='pass' />
-            
+
             <div className="login-actions">
               <button type='submit'>Log In</button>
               <Link to='/register'>Create Account</Link>
-              
+
             </div>
           </form>
           {/*<form onSubmit={handleLogout}>
             <button type='submit'>Logout</button>
           </form>*/}
-      </div>
-    </main>
-      
+        </div>
+      </main>
+
     </>
   );
 }

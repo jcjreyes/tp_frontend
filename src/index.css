@@ -1,4 +1,8 @@
 @import url('https://fonts.google.com/specimen/Fredoka');
+@font-face {
+  font-family: 'Bubbly';
+  src: url('./fonts/Bubbly.otf') format('opentype');
+}
 
 :root {
   font-family: 'Fredoka', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -224,10 +228,12 @@ svg rect:hover {
 
 #map-container {
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
+  padding-top: 5vh;
+  scale: 1.0;
 }
 
 /* Login Page */
@@ -320,7 +326,7 @@ aside.sidebar {
 
 aside.sidebar #back-arrow {
   left: -48px;
-  top: -40px;
+  top: 52px;
   padding: 24px;
   width: 100px;
   background: white;
@@ -371,5 +377,14 @@ aside.sidebar .restroom-details h3 {
 }
 
 .dropdown {
-  padding: 24px 12px;
+  /* padding: 24px 12px; */
+  padding: 0.5rem 0rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown button {
+  background-color: #F0C7A7;
+  color: #efefef;
 }
