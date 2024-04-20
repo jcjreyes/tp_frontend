@@ -1,12 +1,12 @@
 import { useState, forwardRef, useImperativeHandle } from 'react';
-const CampusMap = forwardRef(({ setSelectedBuilding, isZoomed }, ref) => {
+const CampusMap = forwardRef(({ setSelectedBuilding, isZoomed, setIsZoomed }, ref) => {
   useImperativeHandle(ref, () => {
     return { handleUnzoom: handleUnzoomed };
   });
   const unselectedColor = '#383965';
   const [zoomLevel, setZoomLevel] = useState(1);
 
-  const FIRST_THIRD_OF_SCREEN = window.innerWidth * 0.45;
+  const FIRST_THIRD_OF_SCREEN = window.innerWidth * 0.44;
   const VERTICAL_MID_OF_SCREEN = window.innerHeight / 2;
 
   const [newX, setNewX] = useState(0);
@@ -16,18 +16,28 @@ const CampusMap = forwardRef(({ setSelectedBuilding, isZoomed }, ref) => {
 
   const handleClick = (event) => {
     if (!isZoomed) {
-      setNewX(FIRST_THIRD_OF_SCREEN - event.clientX);
-      setNewY(VERTICAL_MID_OF_SCREEN - event.clientY);
-      setZoomLevel(3.5);
+      setNewX(FIRST_THIRD_OF_SCREEN - event.target.getBoundingClientRect().x - event.target.getBoundingClientRect().width/2);
+      setNewY(VERTICAL_MID_OF_SCREEN - event.target.getBoundingClientRect().y - event.target.getBoundingClientRect().height/2);
+      setZoomLevel(2.8);
       event.target.style.fill = '#651940';
       setMapItem(event.target);
+      setIsZoomed(true);
+
+      const clickedElementBBox = event.target.getBBox();
+      // const centerX = clickedElementBBox.x + clickedElementBBox.width / 3;
+      const centerY = clickedElementBBox.y + clickedElementBBox.height / 2;
+      // setNewX(centerX);
+      // setNewY(centerY);
+
+      console.log(event.target.getBoundingClientRect());
+      console.log(event.clientX);
     }
   };
 
   const handleUnzoomed = () => {
     setNewX(0);
     setNewY(0);
-    setZoomLevel(1);
+    setZoomLevel(1.0);
     mapItem.style.fill = unselectedColor;
     setMapItem(null);
   };

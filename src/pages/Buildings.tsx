@@ -40,6 +40,7 @@ export default function Buildings() {
           setSelectedRestroom={setSelectedRestroom}
           onUnzoom={handleUnzoom}
           isZoomed={isZoomed}
+          setIsZoomed={setIsZoomed}
           ref={childFnRef}
         />
       </div>

@@ -228,10 +228,12 @@ svg rect:hover {
 
 #map-container {
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
+  padding-top: 5vh;
+  scale: 1.0;
 }
 
 /* Login Page */
