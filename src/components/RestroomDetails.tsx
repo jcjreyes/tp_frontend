@@ -36,21 +36,28 @@ export default function RestroomDetails({ restroom }) {
       </div>
       <div className='review-list'>
         {reviews &&
-          reviews.map((review) => (
-            <Review
-              author={review.author.username}
-              score={review.rating.rating}
-              text={review.content}
-            />
-            
-          ))}
+          reviews.map((review) => {
+            return (
+              <div>
+                <Review
+                  author={review.author.username}
+                  score={review.rating.rating}
+                  text={review.content}
+                />
+                {console.log(review.images)}
+                {review.images.map((image) => (
+                  <div>
+                    <img src={image.image}></img>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
       </div>
       <div className='tags'>
         <span>
           {details?.tags.map((tag, idx) => (
-            <span className="tag">
-              {tag.name}
-            </span>
+            <span className='tag'>{tag.name}</span>
           ))}
         </span>
       </div>
