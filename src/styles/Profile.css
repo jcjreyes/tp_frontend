@@ -8,9 +8,8 @@
     position: fixed;
   }
 
-
 .left {
-    padding-top: 30%;
+    padding-top: 25%;
     top: 0;
     background-color: #F0C7A7;
     left: 0;
@@ -19,14 +18,15 @@
 
 .right {
     padding-top: 10%;
-    padding-left: 5%;
     top: 0;
     background-color: #914B6F;
-    right: 0;
+    left: 50%;
 }
 
+/* for the left side */
 .profile-username {
-    font-size: xx-large;
+    color: #1A1B4C;
+    font-size: 70px;
     font-weight: bold;
 }
 
@@ -39,10 +39,11 @@
 .profile-right-header {
     text-align: left;
     font-weight: bold;
-    font-size: xx-large;
 }
 
 .profile-review-list {
+    align-items: center;
+    padding-left: 0px;
     display: flex;
     flex-direction: column;
 }
@@ -55,18 +56,45 @@
     width: 50%;
 }
 
-/* for the review box content */
+.your-reviews-block {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-.review-header {
-    font-size: 18px;
+.your-reviews {
+    font-size: 50px;
     font-weight: bold;
-    margin-bottom: 10px;
   }
-  
-  .review-subheader {
+
+/* for the review box content */
+.review-body {
+    font-size: 17px;
+    color: #161742;
+}
+.review-header {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+.logout-button {  
+    color: #fff;
+    background-color: #5F2626;
+    border-radius: 200px;
+    display: inline-block;
+    font-size: 24px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    box-shadow: 0px 3px 3px #161742;
+
+    transition: padding 0.24s;
+    transition: font-size 0.16s;
   }
-  
-  .review-description {
-    font-size: 16px;
-    color: #333;
+
+  .logout-button:hover{
+    font-size: 28px;
+    padding-left: 40px;
+    padding-right: 40px;
   }

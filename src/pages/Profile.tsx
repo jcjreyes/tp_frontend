@@ -34,19 +34,20 @@ export default function Profile() {
       <div className='profile-container'>
         <div className='profile-split left'>
           <div className='profile-summary'>
-            <span className='profile-username'>{profile?.username}</span>
+            <span className='profile-username'>Hello, {profile?.username}!</span>
             <div className='profile-reviewCount'>
+              You have {' '}
               {profile?.reviews.length}{' '}
-              {profile?.reviews.length == 1 ? 'review' : 'reviews'}
+              {profile?.reviews.length == 1 ? 'review' : 'reviews'}{"."}
             </div>
           </div>
           <form onSubmit={handleLogout}>
-            <button type='submit'>Logout</button>
+            <button type='submit' className='logout-button'>Logout</button>
           </form>
         </div>
         <div className='profile-split right'>
-          <div className='profile-right-header'>
-            <span className = 'review-header'>Your Reviews</span>
+          <div className='your-reviews-block'>
+            <span className='your-reviews'>Your Reviews</span>
           </div>
           <div className='profile-review-list'>
             {profile?.reviews.map((review) => (
@@ -55,6 +56,7 @@ export default function Profile() {
                 <div className='review-subheader'>
                   {<Rating readonly={true} initialValue={review.rating.rating} allowFraction={true} />}
                 </div>
+                <span className='review-body'>{review.rating.restroom.split("-")[1]}</span>
               </div>
             ))}
           </div>
