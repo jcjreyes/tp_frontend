@@ -45,27 +45,29 @@ export default function Profile() {
           </form>
         </div>
         <div className='profile-split right'>
-          <div className='profile-right-header'>
-            <span className='review-header'>Your Reviews</span>
-          </div>
-          <div className='profile-review-list'>
-            {profile?.reviews.map((review) => (
-              <div key={review.id} className='review-box'>
-                <span className='review-header'>
-                  {review.rating.restroom.split('-')[0]}
-                </span>
-                <div className='review-subheader'>
-                  {
-                    <Rating
-                      readonly={true}
-                      initialValue={review.rating.rating}
-                      allowFraction={true}
-                    />
-                  }
+          <div className='right-split-wrapper'>
+            <div className='profile-right-header'>
+              <span className='review-header'>Your Reviews</span>
+            </div>
+            <div className='profile-review-list'>
+              {profile?.reviews.map((review) => (
+                <div key={review.id} className='review-box'>
+                  <span className='review-header-name'>
+                    {review.rating.restroom.split('-')[0]}
+                  </span>
+                  <div className='review-subheader'>
+                    {
+                      <Rating
+                        readonly={true}
+                        initialValue={review.rating.rating}
+                        allowFraction={true}
+                      />
+                    }
+                  </div>
+                  <div className='review-content'>{review.content}</div>
                 </div>
-                <div className='review-content'>{review.content}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
