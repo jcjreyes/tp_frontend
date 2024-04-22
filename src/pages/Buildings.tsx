@@ -5,7 +5,6 @@ import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
 import RestroomDetails from '../components/RestroomDetails';
 import '../styles/Sidebar.css';
-import som_pic from '../assets/jgsom.png';
 
 interface Restroom {
   id: string;
@@ -20,9 +19,8 @@ export default function Buildings() {
   const [selectedRestroom, setSelectedRestroom] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const { data: buildings } = useQuery('buildings', BuildingApi.getAll);
-  const getBuildingImage: String = (building) => {
-    return `/public/${building}.jpg`
-  }
+
+  const getBuildingImage: String = (building) => `/public/${building}.jpg`
 
   const buildingDetails = buildings?.find(
     (building) => building.name === selectedBuilding,
