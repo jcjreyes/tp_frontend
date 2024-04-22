@@ -167,11 +167,11 @@ svg rect:hover {
 }
 
 .login-page-body .login-actions button {
-  background-color: #F0C7A7;
+  background-color: #c4702f;
 }
 
 .login-page-body .login-actions a {
-  border: 2px solid #F0C7A7;
+  border: 2px solid #c4702f;
   color: white;
 }
 
@@ -242,6 +242,6 @@ aside.sidebar .restroom-details h3 {
 }
 
 .dropdown button {
-  background-color: #F0C7A7;
+  background-color: #c4702f;
   color: #efefef;
 }
