@@ -5,6 +5,7 @@ import { Buildings as BuildingApi } from '../api/requests/Buildings';
 import { Rating } from 'react-simple-star-rating';
 import RestroomDetails from '../components/RestroomDetails';
 import '../styles/Sidebar.css';
+import '../styles/Map.css';
 
 interface Restroom {
   id: string;
