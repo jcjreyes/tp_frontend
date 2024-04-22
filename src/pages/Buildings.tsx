@@ -20,6 +20,9 @@ export default function Buildings() {
   const [selectedRestroom, setSelectedRestroom] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const { data: buildings } = useQuery('buildings', BuildingApi.getAll);
+  const getBuildingImage: String = (building) => {
+    return `/public/${building}.jpg`
+  }
 
   const buildingDetails = buildings?.find(
     (building) => building.name === selectedBuilding,
@@ -62,7 +65,7 @@ export default function Buildings() {
         </svg>
         <div className='building-picture'>
           <img
-            src={som_pic}
+            src={getBuildingImage(selectedBuilding)}
             alt='Image not found'
             width='100%'
             height='100%'
