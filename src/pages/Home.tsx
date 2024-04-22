@@ -1,3 +1,5 @@
+import '../styles/Homepage.css';
+
 export default function Home() {
   return (
     <>
@@ -23,5 +25,6 @@ export default function Home() {
 
       <img className="mascot" src="./src/assets/mascot.png"/>
     </>
+    
   );
 }
