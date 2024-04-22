@@ -36,6 +36,16 @@ const CampusMap = forwardRef(({ setSelectedBuilding, isZoomed, setIsZoomed }, re
   return (
     <>
       <div className='map-container'>
+      <img
+        className="map-bg map-container"
+        src="../src/assets/map-bg.png"
+        style={{
+          position: 'absolute',
+          right: '0vw',
+          scale: `${zoomLevel}`,
+          transition: 'scale 0.5s ease-in-out',
+        }}>
+        </img>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='630'
@@ -43,7 +53,7 @@ const CampusMap = forwardRef(({ setSelectedBuilding, isZoomed, setIsZoomed }, re
           viewBox='0 0 630 775'
           fill='none'
           style={{
-            zIndex: -200,
+            zIndex: -100,
             transform: `translate(${newX}px, ${newY}px)`,
             scale: `${zoomLevel}`,
             transition: `0.5s ease`,

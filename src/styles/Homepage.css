@@ -17,10 +17,10 @@
 .home-text {
   z-index: 1;
   position: absolute;
-  top: 200px;
+  top: 20vh;
   padding-left: 140px;
   color: rgba(255, 255, 255, 0.87);
-  transform: scale(1.4);
+  transform: scale(1.2);
 }
 
 .home-title {
@@ -43,10 +43,9 @@
 
 .waves {
   margin-left: -140px;
-  margin-TOP: -50px;
+  margin-top: -50px;
   transform: scale(0.985);
   z-index: -1;
-
 }
 
 .waves2 {
