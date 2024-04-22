@@ -2,3 +2,9 @@
   margin: auto;
   padding-top: 5rem;
 }
+
+.map-container{
+  scale: 0.75;
+  position: relative;
+  top: -15.8vh;
+}
