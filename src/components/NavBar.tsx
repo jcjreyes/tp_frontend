@@ -27,6 +27,7 @@ export default function NavBar({ isAuth }) {
           </Link>
         </div>
         <div className='nav-links'>
+          <Link to='/aboutus'>About Us</Link>
           {isAuth ? (
             <Link to='/profile'>Profile</Link>
           ) : (

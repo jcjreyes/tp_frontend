@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 import Buildings from './pages/Buildings';
 import CreateAccount from './pages/CreateAccount';
 import Profile from './pages/Profile';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   const { isAuth } = useAuthStore((state) => state);
@@ -22,6 +23,7 @@ function App() {
           {/* Route for Login Page */}
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginPage />} /> {console.log(isAuth)}
+          <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/register' element={<CreateAccount />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/buildings/list' element={<BuildingsList />} />

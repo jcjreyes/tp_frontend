@@ -88,6 +88,17 @@ svg rect:hover {
   fill: #651940; /* Or your desired highlight color */
 }
 
+/* Map  */
+#map-container {
+  width: 100vw;
+  height: 200vh;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 5vh;
+  scale: 1.0;
+}
+
 /* Login Page */
 .login-page-body {
   background-color: #651940;
