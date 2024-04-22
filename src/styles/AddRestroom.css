@@ -1,0 +1,60 @@
+/* Overall Container */
+.form-container {
+  width: 500px; /* Adjust width as needed */
+  margin: 20px auto; /* Centers the form */
+  padding: 20px;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+}
+
+/* Heading */
+.add-restroom-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form Fields */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type='text'],
+textarea {
+  width: 100%; 
+  padding: 8px;
+  margin-bottom: 15px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+/* Photo Upload Styling */
+.form-control {
+  margin-bottom: 10px;
+}
+
+input[type='file'] {
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+button {
+  background-color: #F0C7A7; /* Example green color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #F0C7B6; /* Slightly darker on hover */
+}
+
+/* Error Messages */
+.error-message {
+  color: red;
+}
+

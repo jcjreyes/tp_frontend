@@ -1,6 +1,7 @@
 import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form';
 import { useEffect } from 'react';
 import { Restrooms } from '../api/requests/Restrooms';
+import '../styles/AddRestroom.css';
 
 export default function AddRestroom({ building, onAdd }) {
   const {
@@ -52,8 +53,8 @@ export default function AddRestroom({ building, onAdd }) {
   };
 
   return (
-    <>
-      {building && <span>Add a restroom to {building.name}:</span>}
+    <div className='form-container'>
+      {building && <h2 classname='add-restroom-text'>Add a restroom to {building.name}:</h2>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor='name'>Name:</label>
@@ -96,6 +97,6 @@ export default function AddRestroom({ building, onAdd }) {
         </div>
         <button type='submit'>Add Restroom</button>
       </form>
-    </>
+    </div>
   );
 }

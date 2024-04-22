@@ -1,0 +1,36 @@
+body {
+  background-color: #914b6f;
+}
+/* Overall Buildings List */
+.buildings-list.main {
+  width: 50vw; /* Adjust as needed */
+  padding: 20px;
+}
+
+/* Header */
+.buildings-list.header {
+  font-size: 2em; 
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: white;
+}
+
+/* Individual Building Items */
+.buildings-list.item {
+  font-size: 1.25em; 
+  border-bottom: 1px solid #eee; 
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.buildings-list.item:hover {
+  background-color: #f5f5f5; /* Subtle hover effect*/
+  transition: ease 0.25s;
+  color: black;
+}
+
+/* Styling for a Selected Building (optional) */
+.buildings-list.item.selected {
+  background-color: #e0e0f0; /* Example highlight color */
+}
