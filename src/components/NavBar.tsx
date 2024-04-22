@@ -4,7 +4,7 @@ import '../styles/NavBar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 
-export default function NavBar({ isAuth }) {
+export default function NavBar({ isAuth, isAdmin }) {
   const { logout } = useAuthStore((state) => state);
   const navigate = useNavigate();
   const handleLogout = async (e) => {
@@ -33,7 +33,7 @@ export default function NavBar({ isAuth }) {
             <Link to='/login'>Login</Link>
           )}
           <Link to='/buildings/map'>Map</Link>
-          <Link to='/buildings/list'>List</Link>
+          {isAdmin && <Link to='/buildings/list'>List</Link>}
           {isAuth && (
             <form onSubmit={handleLogout}>
               <button type='submit'>Logout</button>

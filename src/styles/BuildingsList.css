@@ -5,6 +5,12 @@ body {
 .buildings-list.main {
   width: 50vw; /* Adjust as needed */
   padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #914b6f;
+  box-shadow: 10px 10px 54px -12px rgba(0,0,0,0.75);
 }
 
 /* Header */
@@ -22,6 +28,8 @@ body {
   font-weight: bold;
   cursor: pointer;
   color: white;
+  width: 80%;
+  margin-left: 2em;
 }
 
 .buildings-list.item:hover {

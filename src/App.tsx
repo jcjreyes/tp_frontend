@@ -11,20 +11,22 @@ import CreateAccount from './pages/CreateAccount';
 import Profile from './pages/Profile';
 
 function App() {
-  const { isAuth } = useAuthStore((state) => state);
+  const { isAuth, isAdmin } = useAuthStore((state) => state);
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <NavBar isAuth={isAuth} />
+        <NavBar isAuth={isAuth} isAdmin={isAdmin} />
         <Routes>
           {/* Route for Login Page */}
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginPage />} /> {console.log(isAuth)}
           <Route path='/register' element={<CreateAccount />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/buildings/list' element={<BuildingsList />} />
+          {isAdmin && (
+            <Route path='/buildings/list' element={<BuildingsList />} />
+          )}
           <Route path='/buildings/map' element={<Buildings />} />
         </Routes>
       </BrowserRouter>
