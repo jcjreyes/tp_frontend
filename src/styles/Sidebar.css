@@ -54,6 +54,8 @@
 
 .building-desc {
   padding: 0 3% 3% 3%;
+  display: block;
+  overflow-wrap: anywhere;
 }
 
 .building-details {
@@ -135,10 +137,6 @@
   white-space: nowrap;
 }
 
-
-
-
-
 .column {
   display: flex;
   justify-content: center;
@@ -166,4 +164,11 @@
 
 .building-details.restroom-information .building-name {
   padding: 0;
+}
+
+.review-list img {
+  width: 100px;
+  border: 0.5em solid #1b1a4c;
+  border-radius: 1em;
+  margin-top: 1rem;
 }

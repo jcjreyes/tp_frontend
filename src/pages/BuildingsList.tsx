@@ -7,6 +7,7 @@ import AddRestroom from '../components/AddRestroom';
 import RestroomDetails from '../components/RestroomDetails';
 import som_pic from '../assets/jgsom.png';
 import '../styles/BuildingsList.css';
+import '../styles/Sidebar.css';
 
 export default function BuildingsList() {
   const {

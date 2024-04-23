@@ -43,13 +43,9 @@ export default function RestroomDetails({ restroom }) {
                   author={review.author.username}
                   score={review.rating.rating}
                   text={review.content}
+                  images={review.images}
                 />
                 {console.log(review.images)}
-                {review.images.map((image) => (
-                  <div>
-                    <img src={image.image}></img>
-                  </div>
-                ))}
               </div>
             );
           })}
