@@ -42,7 +42,7 @@ const CampusMap = forwardRef(({ setSelectedBuilding, isZoomed, setIsZoomed }, re
         style={{
           position: 'absolute',
           right: '0vw',
-          scale: `${zoomLevel}`,
+          scale: `${zoomLevel*1.3}`,
           transition: 'scale 0.5s ease-in-out',
         }}>
         </img>
